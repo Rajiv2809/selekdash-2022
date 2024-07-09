@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Selekdash </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="instruction ">
+        <h1>Game Instructions</h1>
+        <p>1. Fill in your username and click "Agree" to proceed.</p>
+        <p>2. Fill in your username and click "Agree" to proceed.</p>
+        <p>3. Fill in your username and click "Agree" to proceed.</p>
+        <p>3. Fill in your username and click "Agree" to proceed.</p>
+        <div>.</div>
+        <input type="text" id="username" placeholder="Enter your username">
+        <button id="agree" disabled>Agree</button>
+    </div>
+    <div class="character-select hidden ">
+        <h1>Character Selection</h1>
+        <p>Select your character, stage, and level to start the game.</p>
+        <div>
+            <h2>Characters</h2>
+            <div class="cr-list">
+                <button  id="c1" class="character">Character 1</button>
+                <button  id="c2" class="character">Character 2</button>
+                <button  id="c3" class="character">Character 3</button>
+                <button  id="c4" class="character">Character 4</button>
+            </div>
+            <button id="random-character">Random Character</button>
+        </div>
+        <div>
+            <h2>Stages</h2>
+            <div class="stg-list">
+                <button id="stg-1" class="stage">Stage 1</button>
+                <button id='stg-2' class="stage">Stage 2</button>
+                <button id='stg-3' class="stage">Stage 3</button>
+                <button id='stg-4' class="stage">Stage 4</button>
+            </div>
+                <button id="random-stage">Random Stage</button>
+        </div>
+        <div>
+            <h2>Level</h2>
+            <select name="level" id="level">
+                <option value="">Choose Level</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <button id="play" disabled>Play</button>
+    </div>
+    <div class="countdown hidden">
+        <h1 id="countdown-timer">3</h1>
+    </div>
+    <canvas id="canvas" class="hidden">
+
+    </canvas>
+    
+    <script src="main.js"></script>
+    <script src="player.js"></script>
+    <script src="Platform.js"></script>
+    <script src="meteor.js"></script>
+    <script src="coins.js"></script>
+    <script src="box.js"></script>
+    <script src="health.js"></script>
+
+</body>
+</html>

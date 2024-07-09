@@ -1,0 +1,56 @@
+#canvas{ 
+    border: 1px solid white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    border: 3px solid black;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: wheat;
+}
+.hidden {
+    display: none;
+}
+.instruction, .character-select, .countdown {
+    position: absolute;
+    text-align: center;
+}
+.instruction{
+    border: 2px solid black;
+    padding: 3rem;
+}
+.cr-list{
+    margin: 2rem 2rem;
+}
+.cr-list button{
+    height: 100px;
+    width: 100px;
+}
+
+.border{
+    border: 3px solid black;
+}
+.stg-list{
+    margin: 2rem ;
+}
+.stg-list button{
+    height: 100px;
+    width: 100px;
+}
+.character-select{
+    border: 2px solid ;
+}
+.show{
+    display: block;
+}
