@@ -33,11 +33,7 @@ class Game {
         ];
         this.boxes = [];
 
-        if(this.startGame){
 
-            this.startMeteorInterval();
-            this.startBoxInterval();
-        }  
         this.startBoxInterval();
         this.startMeteorInterval();
 
@@ -63,7 +59,7 @@ class Game {
 
     startMeteorInterval() {
             setInterval(() => {
-                if (!this.gameOver) {
+                if (!this.gameOver && this.startGame) {
                     let initialMeteorCount;
                     if (this.level === 'easy') initialMeteorCount = 2;
                     else if (this.level === 'medium') initialMeteorCount = 3;
@@ -80,9 +76,8 @@ class Game {
 
     startBoxInterval() {
 
-
         setInterval(() => {
-            if (!this.gameOver) {
+            if (!this.gameOver && this.startGame) {
                 this.boxes.push(new Box(this))
 
 
@@ -197,7 +192,10 @@ class Menu {
         this.agreeButton = document.getElementById('agree');
         this.playButton = document.getElementById('play');
         this.levelSelect = document.getElementById('level');
-
+        
+        this.wheelContainer = document.querySelector('.wheel-container')
+        this.wheel = document.getElementById('wheel')
+        
         this.setupEventListeners();
     }
 
@@ -251,10 +249,30 @@ class Menu {
     }
 
     randomSelectCharacter() {
-        const randomIndex = Math.floor(Math.random() * 4) + 1;
-        const randomCharacter = document.getElementById(`char${randomIndex}`);
-        this.selectCharacter(randomCharacter);
-        alert(`Randomly selected Character ${randomIndex}`);
+        this.wheelContainer.classList.remove('hidden')
+        const segmentCount = 4;
+        this.wheel.style.transform = 'rotate(0deg)'
+        const segmentDegree = 360 / segmentCount;
+        
+        // Generate a random spin angle
+        const randomAngle = Math.floor(Math.random() * 360) + 360 * 5; // 5 full spins
+        
+        // Determine the segment where the this.wheel will stop
+        const selectedSegmentIndex = Math.floor((randomAngle % 360) / segmentDegree);
+        
+        // Spin the this.wheel
+        this.wheel.style.transition = 'transform 4s cubic-bezier(0.25, 0.1, 0.25, 1)';
+        this.wheel.style.transform = `rotate(${randomAngle}deg)`;
+        
+        // Save and display the selected value
+        setTimeout(() => {
+            const selectedValue = this.wheel.children[selectedSegmentIndex].getAttribute('data-value');
+            selectedValueElement.textContent = selectedValue;
+            setTimeout(() => {
+                this.wheel.style.transition = 'none'; // Remove transition for instant reset
+                this.wheel.style.transform = 'rotate(0deg)';
+            }, 500); 
+        }, 4000); 
     }
 
     selectStage(element) {
@@ -333,7 +351,7 @@ window.addEventListener('load', function () {
     canvas.width = 1000;
     canvas.height = 600;
 
-    // Set the difficulty level here ('easy', 'medium', or 'hard')
+    
 
     const game = new Game(canvas,);
     const menu = new Menu(game)

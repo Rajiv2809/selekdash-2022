@@ -147,7 +147,7 @@ class Player {
             playerBottom > coin.y;
     }
     checkIfPlayerFall(){
-        if(this.y >= this.game.height-this.height){
+        if(this.y >= this.game.height -this.height){
             this.x = this.game.width - (this.game.width/2) - 40;
             this.y = this.game.height - 40 - (this.game.height/2);
             this.game.health = this.game.health - 1;

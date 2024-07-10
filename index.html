@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="instruction ">
+    <div class="instruction  ">
         <h1>Game Instructions</h1>
         <p>1. Fill in your username and click "Agree" to proceed.</p>
         <p>2. Fill in your username and click "Agree" to proceed.</p>
@@ -30,6 +30,19 @@
                 <button  id="c4" class="character">Character 4</button>
             </div>
             <button id="random-character">Random Character</button>
+        </div>
+        <div class="wheel-container hidden">
+            <h1>Random Character</h1>
+            <div class="triangle">
+
+            </div>
+            <div class="wheel" id="wheel ">
+                <div class="segment" data-value="1">1</div>
+                <div class="segment" data-value="4">2</div>
+                <div class="segment" data-value="3">3</div>
+                <div class="segment" data-value="2">4</div>
+            </div>
+            <button class="button-random">ok</button>
         </div>
         <div>
             <h2>Stages</h2>
@@ -55,9 +68,7 @@
     <div class="countdown hidden">
         <h1 id="countdown-timer">3</h1>
     </div>
-    <canvas id="canvas" class="hidden">
-
-    </canvas>
+    <canvas id="canvas" class="hidden"></canvas>
     
     <script src="main.js"></script>
     <script src="player.js"></script>
